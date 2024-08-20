@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
 
@@ -14,7 +15,7 @@ public class Pruebas : MonoBehaviour
     private int puntaje =(int) 9.5334f;
     
     //int[] lifes = new int[3];
-    private int[] lifes = { 1, 2, 3 };
+    private int[] lifes = { 2, 3, 4 };
 
     private List<string> nombresPersonajes = new List<string>()
     {
@@ -80,6 +81,93 @@ public class Pruebas : MonoBehaviour
         }
 
 
+        for (int i = 0; i < nombresPersonajes.Count; i++)
+        {
+            Debug.LogFormat("Nombre pesonaje en la posicion {0} - {1} ", i , nombresPersonajes[i]);
+        }
+
+        for (int i = 0; i < lifes.Length; i++)
+        {
+            Debug.LogFormat("cantidades de vida {0} {1}",i ,lifes[i]);
+        }
+
+        for (int i = 0; i < nombresPersonajes.Count; i++)
+        {
+            string personajeActual = nombresPersonajes[i];
+
+            if (personajeActual == "Bertha")
+            {
+                Debug.LogFormat("Es el personaje del año {0}", personajeActual);
+                
+            }
+        }
+
+        bool encontrado = false;
+        for (int i = 0; i < nombresPersonajes.Count && !encontrado; i ++)
+        {
+            string personajeActual = nombresPersonajes[i];
+
+            if (personajeActual == "Edwin")
+            {
+                encontrado = true;
+                Debug.LogFormat("Esta persona es la mas luchadora del mundo {0} ", personajeActual);
+            }
+            if (encontrado)
+            {
+                
+            
+                Debug.LogFormat("{0} No te rindas por mas grande que sea el obstaculo",
+                   personajeActual);
+            }
+            else
+            {
+                Debug.LogFormat("aun puedes");
+            }
+            Debug.Log(encontrado? "He encontrado a Edwin " : " Aún no aparece");
+        }
+
+
+
+        foreach (string nombres in nombresPersonajes)
+        {
+            Debug.Log(nombres + " Presente");
+        }
+
+
+        foreach (int vida in lifes)
+        {
+         Debug.Log(" Tengo tantas vidas = " + vida);  
+        }
+
+
+        foreach (KeyValuePair<string, int> kvp in armas)
+        {
+            Debug.LogFormat("Arma : {0} - cantidad: {1} ", kvp.Key, kvp.Value);
+        }
+
+        string item = "";
+        foreach ( KeyValuePair<string, int> kvp  in armas)
+        {
+            //Debug.LogFormat("Arma : {0} - {1} ", kvp.Key, kvp.Value);
+            if (!armas.ContainsKey(item) || armas[item] < kvp.Value)
+            {
+                item = kvp.Key;
+                
+            }
+            
+            
+        }
+        Debug.LogFormat("El arma con mas elementos es : {0} que tiene : {1} ", item ,armas[item] );
+        
+        
+        int numberOfLives = 3;
+        while (numberOfLives > 0)
+        
+        {
+            Debug.Log("Aun tengo vidas");
+            numberOfLives--;
+        }
+        Debug.Log("ME he quedado sin vidas");
     }
 
     // Update is called once per frame
