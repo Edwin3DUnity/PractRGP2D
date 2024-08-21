@@ -47,7 +47,7 @@ public class Character
         this.level = level;
     }
 
-    public void PrintCharacterStatus()
+    public virtual void PrintCharacterStatus()
     {
         Debug.LogFormat("Heroe: {0} - {1} level ", this.name, this.level);
     }
@@ -63,34 +63,48 @@ public class Character
 
 public class Paladin : Character
 {
+    public Weapon weapon;
     public Paladin() : base()
     {
         
     }
 
-    public Paladin(string name) : base((name))
+    public Paladin(string name, Weapon weapon) : base((name))
     {
-        
+        this.weapon = weapon;
+    }
+
+    public override void PrintCharacterStatus()
+    {
+        Debug.LogFormat("Hola, soy el paladin {0} y llevo una {1} ", this.name, this.weapon.name);
     }
 }
 
 public class Archer : Character
 {
-
+    public Weapon arch;
     public Archer() : base()
     {
         
     }
 
-    public Archer(string name) : base(name)
+    public override void PrintCharacterStatus()
     {
+        base.PrintCharacterStatus();
+        Debug.LogFormat("llveo una {0} ",this.arch.name );
         
+    }
+
+    public Archer(string name, Weapon arch) : base(name)
+    {
+        this.arch = arch;
     }
 
 }
 
 public class Magician : Character
 {
+    private Weapon staff;
     public Magician() : base()
     {
         
@@ -103,7 +117,10 @@ public class Magician : Character
 
     public Magician(string name, int level) : base(name,level)
     {
-        
+        this.staff = new Weapon("Vara magica dorada" , 30);
     }
+    
+    
+    
     
 }
