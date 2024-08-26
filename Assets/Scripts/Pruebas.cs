@@ -30,6 +30,20 @@ public class Pruebas : MonoBehaviour
     };
     void Start()
     {
+      /*  Inventory<Weapon> invWe = new Inventory<Weapon>();
+        invWe.SetItem(new Weapon("Espada antigua", 20));
+        Inventory<int> IntI = new Inventory<int>();
+        IntI.SetItem(42);
+
+        Inventory<string> studens = new Inventory<string>();
+        studens.SetItem("Antonio Banderas");
+
+        Inventory<Transform> wp = new Inventory<Transform>();
+        wp.SetItem(GameObject.Find("Player").transform);*/
+
+      Inventory<Archer> a = new Inventory<Archer>();  
+      
+      
         int firstLive = lifes[0];
         Debug.Log("Primer vida" + firstLive);
 

@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
+using CustomExtensions;
+
+
+using EPaniInt = System.Int64;
 
 public class PractiPrograAvan : MonoBehaviour, InterfacePract
 {
@@ -32,7 +36,8 @@ public class PractiPrograAvan : MonoBehaviour, InterfacePract
    public  void Initialize()
    {
        _state = "Manager Inicializado";
-       Debug.Log(_state);
+    //   Debug.Log(_state);
+       _state.EdwinPaniaguaDebug();
    }
    
    /*fin de la Interface Imanager*/
