@@ -7,7 +7,21 @@ using Debug = UnityEngine.Debug;
 
 public class Pruebas : MonoBehaviour
 {
+    //delegados
+    public delegate void DebugFromDelegate(string text);
 
+    public DebugFromDelegate impDebug = Imprimir;
+
+    public static void Imprimir(string text)
+    {
+        Debug.Log(text);
+    }
+
+    public void LogWithMyDelegate(DebugFromDelegate dele)
+    {
+        dele("Estoy en un método");
+    }
+    
     public int x = 2;
     public int y = 3;
     public string name = "Edwin Paniagua";
@@ -41,12 +55,15 @@ public class Pruebas : MonoBehaviour
         Inventory<Transform> wp = new Inventory<Transform>();
         wp.SetItem(GameObject.Find("Player").transform);*/
 
-      Inventory<Archer> a = new Inventory<Archer>();  
-      
-      
+      Inventory<Archer> a = new Inventory<Archer>();
+
+      impDebug ( "Practica de delegados");
         int firstLive = lifes[0];
         Debug.Log("Primer vida" + firstLive);
-
+        LogWithMyDelegate(impDebug);
+        
+        
+        
         lifes[2] = 5;
         Debug.Log("cantidad de vidas en la opcion 3= " + lifes[2]);
 

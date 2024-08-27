@@ -24,7 +24,7 @@ public static class Utilities
 
     public static void RestarLevel(int buildIndex)
     {
-        SceneManager.LoadScene(0);
+//        SceneManager.LoadScene(0);
      //   Time.timeScale = 1;
     }
 
